@@ -30,13 +30,13 @@ Set up core components to build a fully automated SOC environment with Wazuh and
   - Download and install Wazuh on a virtual machine.
   - Configure Wazuh for initial threat detection and monitoring.
 
-    ![alt text](https://github.com/0xT3sla/SOC-Projects/tree/main/Wazuh-theHive-SOAR-stack/images/wazuh-dashboard.png)
+![alt text](https://github.com/0xT3sla/SOC-Projects/tree/main/Wazuh-theHive-SOAR-stack/images/wazuh-dashboard.png)
 #### Step 3: Configuring a Secure Firewall for Virtual Machines
 - **Objective**: Secure virtual machines from unauthorized access by setting up a robust firewall.
 - **Actions**:
   - Set firewall rules to control and restrict access to the virtual machines.
 
-    ![alt text](https://github.com/0xT3sla/SOC-Projects/tree/main/Wazuh-theHive-SOAR-stack/images/firewall-do.png)
+![alt text](https://github.com/0xT3sla/SOC-Projects/tree/main/Wazuh-theHive-SOAR-stack/images/firewall-do.png)
 
 #### Step 4: Installing TheHive for Incident Response Management
 - **Objective**: Set up TheHive for efficient case management, allowing for systematic incident tracking and response.
@@ -55,7 +55,7 @@ Set up core components to build a fully automated SOC environment with Wazuh and
 ---
 
 ## Installation of Wazuh
-![alt text](https://github.com/0xT3sla/SOC-Projects/tree/main/Wazuh-theHive-SOAR-stack/images/wazuh-logo.png)
+![alt text](/images/wazuh-logo.png)
 ### Step 1: Install Wazuh 4.7
 Run the following command to download and execute the Wazuh installation script:
 ```bash
