@@ -136,3 +136,71 @@ sudo apt-get update
 Your Windows agent is now installed and reporting to the Wazuh manager! This method allows you to set up the agent in one step without manually downloading or configuring the installer.
 
 ---
+
+## Wazuh configuration and mimikatz alert checking 
+### 1. Setup Overview
+- The purpose of this phase is to configure telemetry generation from a Windows 10 machine and ensure the telemetry is ingested into Wazuh. By the end of this process, the system will detect Mimikatz activity and trigger a custom alert in Wazuh.
+
+### 2. Configuration of Wazuh
+- Navigate to Wazuh’s installation directory, typically located at:
+
+- Open the `ossec.conf` configuration file in Notepad with administrative privileges.
+
+### 3. Modify Log Analysis Settings
+- In the configuration file, locate the **Log Analysis** section to identify any event IDs excluded from logging.
+- Copy an existing file tag and modify it to monitor for **Mimikatz** activity.
+- Ensure **Sysmon** is installed and configured for event logging, as it will provide detailed telemetry for this setup.
+
+### 4. Backup Configuration
+- Create a backup of the `ossec.conf` file before making changes to the log settings.
+
+### 5. Configure Sysmon Logs
+- Open Windows Event Viewer to identify the **Sysmon channel name**.
+- Update `ossec.conf` to include Sysmon logs for ingestion in Wazuh.
+- Remove any unnecessary local file applications if focusing solely on Sysmon logs.
+
+### 6. Restart Wazuh Service
+- Save the configuration changes and restart the Wazuh service to apply the updated settings.
+
+### 7. Download and Prepare Mimikatz
+- Exclude the downloads folder from Windows Defender to allow Mimikatz to be downloaded without interference.
+- Download **Mimikatz** and extract it to a designated folder for testing.
+
+### 8. Execute Mimikatz
+- Open an **administrative PowerShell** session and navigate to the Mimikatz directory.
+- Run `mimikatz.exe` to generate telemetry.
+
+<img src="./images/mimikatz-screenshot.png" alt="Image description" width="650" height="auto">
+
+<img src="./images/mimikatz and event manager.png" alt="Image description" width="650" height="auto">
+
+### 9. Monitor Wazuh Dashboard
+- Check the Wazuh dashboard for any Sysmon events related to Mimikatz.
+- If no events are visible, confirm Sysmon is generating the expected logs by reviewing the configuration.
+
+---
+
+## Custom Alert Creation
+
+### 10. Configure Custom Alert
+- Modify `ossec.conf` file in the wazuh server to enable logging for all desired event flags.
+- Save the changes and restart the Wazuh service.
+
+### 11. Create a New Index for Archived Logs
+- Set up a new index in Wazuh to archive logs, making it easier to search for specific events.
+
+<img src="./images/new-index-patterns.png" alt="Image description" width="650" height="auto">
+<img src="./images/custom-rule-wazuh.png" alt="Image description" width="650" height="auto">
+
+### 12. Test Alert Triggering
+- Rename the Mimikatz executable and run it to test alert functionality based on the original file name.
+- Verify the Wazuh dashboard for triggered alerts.
+
+<img src="./images/mimikatz-event-wd.png" alt="Image description" width="650" height="auto">
+
+Mimikatz events triggered in dashboard
+
+### 13. Final Adjustments
+- Make any final adjustments to the alert configurations to ensure they are accurately set to trigger on specific conditions.
+---
+
