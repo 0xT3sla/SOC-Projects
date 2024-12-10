@@ -9,7 +9,7 @@ This project aims to develop a fully automated Security Operations Center (SOC) 
 ---
 ### Contributors
 <p align="left">
-<a href="https://www.linkedin.com/in/jeyavasan-t/" target="blank"><img align="center" src="https://i.ibb.co/HCSSb9k/jeyesh-avatar-comp.png" alt="Jeyesh T" height="70" width="70" /></a>
+<a href="https://www.linkedin.com/in/jeyavasan-t/" target="blank"><img align="center" src="https://i.ibb.co/HCSSb9k/jeyesh-avatar-comp.png" alt="Jeyesh T" height="75" width="75" /></a>
 <a href="https://www.linkedin.com/in/hemanthrajub" target="blank"><img align="center" src="https://i.ibb.co/cDCjCnf/hemavatar-comp.png" alt="Hemanthraju B" height="75" width="75" /></a> &nbsp; &nbsp; &nbsp; &nbsp;
 
 ---
